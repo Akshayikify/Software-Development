@@ -3,9 +3,122 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
+    <title>TAKEAWAY!!</title>
+    <style>
+        body {
+            margin: 0;
+            font-family: Arial, sans-serif;
+        }
+        .navbar {
+            background-color: #ff5c5c;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 15px 30px;
+        }
+        .logo-container {
+            display: flex;
+            align-items: center;
+            gap: 5px;
+        }
+        .logo-container img:first-child {
+            width: 50px;
+        }
+        .logo-container img:last-child {
+            width: 80px; /* Making the second logo bigger */
+        }
+        .nav-links {
+            display: flex;
+            gap: 70px;
+            flex: 1;
+            justify-content: center;
+            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
+            font-weight: bold;
+        }
+        .nav-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 22px;
+            transition: color 0.3s, transform 0.3s;
+        }
+        .nav-links a:hover {
+            color: white;
+            transform: scale(1.1);
+        }
+        .search-login {
+            display: flex;
+            gap: 10px;
+        }
+        .search-login input {
+            padding: 10px;
+            width: 250px;
+            border-radius: 20px;
+            border: 1px solid #ccc;
+            outline: none;
+        }
+        .login-btn {
+            background-color: blue;
+            color: white;
+            padding: 10px 15px;
+            border: none;
+            border-radius: 20px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+        .login-btn:hover {
+            background-color: darkblue;
+            transform: scale(1.1);
+        }
+        .food-container {
+            display: flex;
+            justify-content: center;
+            gap: 30px;
+            padding: 20px;
+        }
+        .food-container img {
+            width: 250px;
+            height: 200px;
+            border-radius: 10px;
+        }
+        .footer {
+            background-color: gray;
+            color: white;
+            text-align: center;
+            padding: 15px;
+            margin-top: 20px;
+        }
+    </style>
 </head>
 <body>
+    <div class="navbar">
+        <div class="logo-container">
+            <img src="logo.png" alt="Logo">
+            <img src="logo2.png" alt="Logo 2.0">
+        </div>
+        <div class="nav-links">
+            <a href="#">Home</a>
+            <a href="#">About</a>
+            <a href="#">My Cart</a>
+            <a href="#">Get the App</a>
+        </div>
+        <div class="search-login">
+            <input type="text" placeholder="Search here">
+            <button class="login-btn">Login</button>
+        </div>
+    </div>
     
+    <div class="food-container">
+        <img src="burger.jpg" alt="Burger">
+        <img src="pizza.jpg" alt="Pizza">
+        <img src="thali.jpg" alt="Thali">
+        <img src="idli.jpg" alt="Idli">
+    </div>
+    
+    <div class="footer">
+        <p>Contact Us: 123abc@gmail.com | 1234567890</p>
+        <p>Address: ABCDEFGHIJ Road, Bangalore</p>
+        <p>All rights reserved © 2025 Takeaway</p>
+    </div>
 </body>
 </html>
+
