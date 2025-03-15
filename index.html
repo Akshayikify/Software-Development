@@ -4,90 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>TAKEAWAY!!</title>
-    <style>
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-        }
-        .navbar {
-            background-color: #ff5c5c;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            padding: 15px 30px;
-        }
-        .logo-container {
-            display: flex;
-            align-items: center;
-            gap: 5px;
-        }
-        .logo-container img:first-child {
-            width: 50px;
-        }
-        .logo-container img:last-child {
-            width: 80px; /* Making the second logo bigger */
-        }
-        .nav-links {
-            display: flex;
-            gap: 70px;
-            flex: 1;
-            justify-content: center;
-            font-family: system-ui, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue', sans-serif;
-            font-weight: bold;
-        }
-        .nav-links a {
-            text-decoration: none;
-            color: black;
-            font-size: 22px;
-            transition: color 0.3s, transform 0.3s;
-        }
-        .nav-links a:hover {
-            color: white;
-            transform: scale(1.1);
-        }
-        .search-login {
-            display: flex;
-            gap: 10px;
-        }
-        .search-login input {
-            padding: 10px;
-            width: 250px;
-            border-radius: 20px;
-            border: 1px solid #ccc;
-            outline: none;
-        }
-        .login-btn {
-            background-color: blue;
-            color: white;
-            padding: 10px 15px;
-            border: none;
-            border-radius: 20px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .login-btn:hover {
-            background-color: darkblue;
-            transform: scale(1.1);
-        }
-        .food-container {
-            display: flex;
-            justify-content: center;
-            gap: 30px;
-            padding: 20px;
-        }
-        .food-container img {
-            width: 250px;
-            height: 200px;
-            border-radius: 10px;
-        }
-        .footer {
-            background-color: gray;
-            color: white;
-            text-align: center;
-            padding: 15px;
-            margin-top: 20px;
-        }
-    </style>
+    <link rel="stylesheet" href="index.css">
 </head>
 <body>
     <div class="navbar">
@@ -106,14 +23,114 @@
             <button class="login-btn">Login</button>
         </div>
     </div>
-    
-    <div class="food-container">
-        <img src="burger.jpg" alt="Burger">
-        <img src="pizza.jpg" alt="Pizza">
-        <img src="thali.jpg" alt="Thali">
-        <img src="idli.jpg" alt="Idli">
-    </div>
-    
+    <div class="food-dishes">
+        <h2>Famous South Indian Food Dishes</h2>
+        <!-- 1st -->
+        <div class="Food-items">
+        <div class="Food">
+            <a href="#"><img src="idli_south-removebg-preview.png" alt="idli">
+               <p>Idli</p></a>
+        </div>
+        <!-- 2nd  -->
+        <div class="Food">
+            <a href="#"><img src="Rava_Appe-removebg-preview.png" alt="Rava Appe">
+               <p>Rava Appe</p></a>
+        </div>
+        <!-- 3rd -->
+        <div class="Food">
+            <a href="#"><img src="masala dosa (2).jpg" alt="Masala Dosa">
+               <p>Masala Dosa</p></a>
+        </div>
+        <!-- 4th -->
+        <div class="Food">
+            <a href="#"><img src="Dosa.jpg" alt="Dosa">
+               <p>Dosa</p></a>
+        </div>
+        <!-- 5th -->
+        <div class="Food">
+            <a href="#"><img src="Poori-removebg-preview.png" alt="Poori">
+               <p>Poori</p></a>
+        </div>
+        <!-- 6th -->
+        <div class="Food">
+            <a href="#"><img src="parotta-removebg-preview.png" alt="Parotta">
+               <p>Parotta</p></a>
+        </div>
+        <!-- 7th -->
+        <div class="Food">
+            <a href="#"><img src="rice and sambar.avif" alt="Rice and Sambar">
+               <p>Rice and Sambar</p></a>
+        </div>
+        <!-- 8th -->
+        <div class="Food">
+            <a href="#"><img src="curd_rice-removebg-preview.png" alt="Curd Rice">
+               <p>Curd Rice</p></a>
+        </div>
+        <!-- 9th -->
+        <div class="Food">
+            <a href="#"><img src="pulao-removebg-preview.png" alt="Pulao">
+               <p>Pulao</p></a>
+        </div>
+        <!-- 10th -->
+        <div class="Food">
+            <a href="#"><img src="Tomato_rice-removebg-preview (1).png" alt="Tomato Rice">
+               <p>Tomato Rice</p></a>
+        </div>
+        </div>
+        <h2>Famous North Indian Food Dishes</h2>
+        <div class="Food-items">
+            <!-- 1 -->
+        <div class="Food">
+            <a href="#"><img src="paneer_parata.png" alt="Paneer Parata">
+                <p>Paneer Parata</p></a>
+        </div>
+        <!-- 2 -->
+        <div class="Food">
+            <a href="#"><img src="Veg_Biryani-removebg-preview.png" alt="Veg Biryani">
+                <p>Veg Biryani</p></a>
+        </div>
+        <!-- 3 -->
+        <div class="Food">
+            <a href="#"><img src="Chole Bhatura (1).png" alt="Chole Bhatura">
+                <p>Chole Bhatura</p></a>
+        </div>
+        <!-- 4 -->
+        <div class="Food">
+            <a href="#"><img src="Butter naan.png" alt="Butter naan">
+                <p>Butter Naan</p></a>
+        </div>
+        <!-- 5 -->
+        <div class="Food">
+            <a href="#"><img src="paneerbutter.png" alt="Paneer Butter">
+                <p>Paneer Butter Masala</p></a>
+        </div>
+        <!-- 6 -->
+        <div class="Food">
+            <a href="#"><img src="Aloo parata.png" alt="Aloo Parata">
+                <p>Aloo Parata</p></a>
+        </div>
+        <!-- 7 -->
+        <div class="Food">
+            <a href="#"><img src="daal-makhni.png" alt="Daal Makhni">
+                <p>Daal Makhni</p></a>
+        </div>
+        <!-- 8 -->
+        <div class="Food">
+            <a href="#"><img src="kadai paneer.png" alt="Kadai Paneer">
+                <p>Daal Makhni</p></a>
+        </div>
+        <!-- 9 -->
+        <div class="Food">
+            <a href="#"><img src="palak paneer.png" alt="Palak Paneer">
+                <p>Palak Paneer</p></a>
+        </div>
+        <!-- 10 -->
+        <div class="Food">
+            <a href="#"><img src="matar_paneer.png" alt="Matar Paneer">
+                <p>Matar Paneer</p></a>
+        </div>
+        </div>
+    </div>   
     <div class="footer">
         <p>Contact Us: 123abc@gmail.com | 1234567890</p>
         <p>Address: ABCDEFGHIJ Road, Bangalore</p>
@@ -121,4 +138,3 @@
     </div>
 </body>
 </html>
-
