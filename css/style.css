@@ -1,0 +1,300 @@
+/* Reset & Basics */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  text-decoration: none;
+}
+body {
+  font-family: 'Segoe UI', sans-serif;
+  background-color: #f2f2f2;
+  color: #333;
+  transition: background 0.3s, color 0.3s;
+}
+
+/* Dark Mode */
+body.dark {
+  background-color: #121212;
+  color: #f9f9f9;
+}
+body.dark table, body.dark .crypto-table {
+  background: #1e1e1e;
+}
+body.dark nav {
+  background: #222;
+}
+
+/* Navbar */
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem 2rem;
+  background: #111;
+  color: white;
+}
+.navbar ul {
+  list-style: none;
+  display: flex;
+  gap: 1rem;
+}
+.navbar a, .navbar button {
+  color: white;
+  background: none;
+  border: none;
+  cursor: pointer;
+  text-decoration: none;
+  font-size: 1rem;
+}
+
+/* Hero Section */
+.hero {
+  padding: 2rem;
+  text-align: center;
+  background: linear-gradient(to right, #3f87a6, #ebf8e1);
+}
+.hero h2 {
+  font-size: 2.5rem;
+}
+.hero p {
+  margin-top: 0.5rem;
+  font-size: 1.2rem;
+}
+
+/* Search Bar */
+.search-filter {
+  margin: 1rem auto;
+  text-align: center;
+}
+#searchInput {
+  padding: 0.5rem;
+  width: 50%;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+}
+
+/* Table */
+.crypto-table {
+  padding: 1rem;
+  overflow-x: auto;
+}
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+th, td {
+  padding: 1rem;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+/* Footer */
+footer {
+  text-align: center;
+  padding: 1rem;
+  background: #111;
+  color: white;
+  margin-top: 2rem;
+}
+
+/* Responsive */
+@media (max-width: 600px) {
+  #searchInput {
+    width: 90%;
+  }
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  thead {
+    display: none;
+  }
+  tr {
+    margin-bottom: 1rem;
+    background: #eee;
+    padding: 1rem;
+    border-radius: 10px;
+  }
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+  }
+}
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.2rem;
+}
+.star-btn:hover {
+  color: gold;
+}/* Switch toggle */
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 50px;
+  height: 26px;
+  margin-left: auto;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  top: 0; left: 0;
+  right: 0; bottom: 0;
+  background-color: #ccc;
+  border-radius: 34px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+
+.slider:before {
+  content: "";
+  position: absolute;
+  height: 20px; width: 20px;
+  left: 4px; bottom: 3px;
+  background-color: white;
+  border-radius: 50%;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #2196f3;
+}
+
+input:checked + .slider:before {
+  transform: translateX(24px);
+}
+
+/* Dark mode styles */
+body.dark {
+  background-color: #121212;
+  color: #f5f5f5;
+}
+
+body.dark .navbar,
+body.dark .coin-table,
+body.dark table,
+body.dark footer {
+  background-color: #1e1e1e;
+  color: #f5f5f5;
+}
+
+body.dark table td,
+body.dark table th {
+  border-color: #333;
+}
+
+body.dark a {
+  color: #90caf9;
+}
+.bell-btn {
+  background: none;
+  border: none;
+  font-size: 24px;
+  cursor: pointer;
+  margin-left: 10px;
+  color: inherit;
+}
+
+/* Notification pop-up */
+#notificationPopup {
+  position: fixed;
+  top: 80px;
+  right: 20px;
+  background: #333;
+  color: #fff;
+  padding: 12px 18px;
+  border-radius: 10px;
+  z-index: 1000;
+  opacity: 0;
+  pointer-events: none;
+  transition: all 0.4s ease;
+}
+
+#notificationPopup.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+/* Login button */
+.login-btn {
+  background-color: transparent;
+  border: 1px solid #888;
+  color: inherit;
+  padding: 6px 12px;
+  margin-left: 10px;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+/* Modal styles */
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0; top: 0;
+  width: 100%; height: 100%;
+  background: rgba(0,0,0,0.6);
+  justify-content: center;
+  align-items: center;
+}
+
+.modal-content {
+  background: #fff;
+  padding: 30px;
+  border-radius: 10px;
+  width: 300px;
+  text-align: center;
+  position: relative;
+}
+
+.modal-content input {
+  width: 100%;
+  padding: 10px;
+  margin: 10px 0;
+  border-radius: 6px;
+  border: 1px solid #ccc;
+}
+
+.modal-content button[type="submit"] {
+  background-color: #2196f3;
+  color: white;
+  padding: 10px;
+  border: none;
+  width: 100%;
+  border-radius: 6px;
+  cursor: pointer;
+}
+
+.close-btn {
+  position: absolute;
+  right: 15px;
+  top: 10px;
+  font-size: 20px;
+  cursor: pointer;
+}
+
+.coming-soon-text {
+  margin-top: 10px;
+  font-size: 14px;
+  color: #888;
+}
+
+body.dark .modal-content {
+  background: #1e1e1e;
+  color: white;
+}
+
+body.dark .modal-content input {
+  background: #333;
+  color: white;
+  border: 1px solid #555;
+}
