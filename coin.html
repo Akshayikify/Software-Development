@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Coin Details</title>
+  <link rel="stylesheet" href="css/style.css" />
+</head>
+<body>
+
+  <!-- Navbar -->
+  <nav class="navbar">
+    <h1><a href="index.html">← Back</a></h1>
+    <h2 id="coinName">Loading...</h2>
+    <button id="notifyBtn" title="Notifications" class="bell-btn">🔔</button>
+  </nav>
+  <div id="notificationPopup">🔔 Real-time price alerts are coming soon!</div>
+
+
+  <!-- Coin Info -->
+  <section class="coin-details" id="coinDetails">
+    <!-- Populated by JS -->
+  </section>
+  <canvas id="priceChart" height="100"></canvas>
+  <div class="modal" id="loginModal">
+    <div class="modal-content">
+      <span class="close-btn" id="closeLogin">&times;</span>
+      <h2>Login to Your Account</h2>
+      <form id="loginForm">
+        <input type="text" placeholder="Username" required />
+        <input type="password" placeholder="Password" required />
+        <button type="submit">Login</button>
+      </form>
+    </div>
+  </div>
+  <footer>
+    <p>&copy; 2025 CryptoTracker</p>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="js/coin.js"></script>
+</body>
+</html>
