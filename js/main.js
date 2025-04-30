@@ -17,34 +17,6 @@ async function fetchCoins() {
 }
 
 function displayCoins(coins) {
-  coinList.innerHTML = coins.map(coin => `
-    <tr>
-      <td><a href="coin.html?id=${coin.id}"><img src="${coin.image}" width="20"> ${coin.name}</a></td>
-      <td>$${coin.current_price.toLocaleString()}</td>
-      <td style="color: ${coin.price_change_percentage_24h >= 0 ? 'green' : 'red'};">
-        ${coin.price_change_percentage_24h.toFixed(2)}%
-      </td>
-      <td>$${coin.market_cap.toLocaleString()}</td>
-      <td><button class="star-btn">★</button></td>
-    </tr>
-  `).join('');
-}
-
-// Filter logic
-function filterCoins(allCoins) {
-  const query = searchInput.value.toLowerCase();
-  const filtered = allCoins.filter(coin => coin.name.toLowerCase().includes(query));
-  displayCoins(filtered);
-}
-
-// Dark mode toggle
-document.getElementById("darkModeToggle").addEventListener("click", () => {
-  document.body.classList.toggle("dark");
-});
-
-// Call it on load
-fetchCoins();
-function displayCoins(coins) {
   const watchlist = JSON.parse(localStorage.getItem("watchlist")) || [];
 
   coinList.innerHTML = coins.map(coin => {
@@ -52,7 +24,7 @@ function displayCoins(coins) {
     return `
       <tr>
         <td>
-          <a href="coin.html?id=${coin.id}">
+          <a href="coin.php?id=${coin.id}">
             <img src="${coin.image}" alt="${coin.name}" width="20"> ${coin.name}
           </a>
         </td>
@@ -80,6 +52,13 @@ function displayCoins(coins) {
   });
 }
 
+// Filter logic
+function filterCoins(allCoins) {
+  const query = searchInput.value.toLowerCase();
+  const filtered = allCoins.filter(coin => coin.name.toLowerCase().includes(query));
+  displayCoins(filtered);
+}
+
 function toggleWatchlist(coinId) {
   let list = JSON.parse(localStorage.getItem("watchlist")) || [];
   if (list.includes(coinId)) {
@@ -89,6 +68,7 @@ function toggleWatchlist(coinId) {
   }
   localStorage.setItem("watchlist", JSON.stringify(list));
 }
+
 // Set theme on load
 if (localStorage.getItem("theme") === "dark") {
   document.body.classList.add("dark");
@@ -105,25 +85,34 @@ document.getElementById("darkModeToggle").addEventListener("change", (e) => {
     localStorage.setItem("theme", "light");
   }
 });
+
+// Notification popup
 document.getElementById("notifyBtn")?.addEventListener("click", () => {
   const popup = document.getElementById("notificationPopup");
   popup.classList.add("show");
   setTimeout(() => popup.classList.remove("show"), 3000); // Hide after 3 seconds
 });
+
 // Login modal toggle
 const loginBtn = document.getElementById("loginBtn");
 const loginModal = document.getElementById("loginModal");
 const closeLogin = document.getElementById("closeLogin");
 
-loginBtn?.addEventListener("click", () => {
-  loginModal.style.display = "flex";
-});
+if (loginBtn) {
+  loginBtn.addEventListener("click", () => {
+    loginModal.style.display = "flex";
+  });
+}
 
-closeLogin?.addEventListener("click", () => {
-  loginModal.style.display = "none";
-});
+if (closeLogin) {
+  closeLogin.addEventListener("click", () => {
+    loginModal.style.display = "none";
+  });
+}
 
 window.addEventListener("click", (e) => {
   if (e.target === loginModal) loginModal.style.display = "none";
 });
 
+// Call it on load
+fetchCoins();

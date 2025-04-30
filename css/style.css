@@ -5,11 +5,13 @@
   box-sizing: border-box;
   text-decoration: none;
 }
+
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #f2f2f2;
+  font-family: 'Segoe UI', 'Roboto', sans-serif;
+  background-color: #f7f9fc;
   color: #333;
   transition: background 0.3s, color 0.3s;
+  line-height: 1.6;
 }
 
 /* Dark Mode */
@@ -17,11 +19,21 @@ body.dark {
   background-color: #121212;
   color: #f9f9f9;
 }
-body.dark table, body.dark .crypto-table {
+
+body.dark table, 
+body.dark .crypto-table {
   background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 }
+
 body.dark nav {
-  background: #222;
+  background: linear-gradient(to right, #1e1e1e, #2d2d2d);
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
+}
+
+body.dark .coin-card {
+  background: #1e1e1e;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 /* Navbar */
@@ -30,15 +42,41 @@ body.dark nav {
   justify-content: space-between;
   align-items: center;
   padding: 1rem 2rem;
-  background: #111;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
   color: white;
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
 }
+
+.navbar h1 a {
+  color: white;
+  text-decoration: none;
+  display: flex;
+  align-items: center;
+  font-weight: 500;
+}
+
+.navbar h1 a:before {
+  content: "←";
+  margin-right: 8px;
+  font-size: 1.2em;
+}
+
+.navbar h2 {
+  font-size: 1.3rem;
+  font-weight: 500;
+}
+
 .navbar ul {
   list-style: none;
   display: flex;
   gap: 1rem;
 }
-.navbar a, .navbar button {
+
+.navbar a, 
+.navbar button {
   color: white;
   background: none;
   border: none;
@@ -49,95 +87,229 @@ body.dark nav {
 
 /* Hero Section */
 .hero {
-  padding: 2rem;
+  padding: 3rem 2rem;
   text-align: center;
-  background: linear-gradient(to right, #3f87a6, #ebf8e1);
+  background: linear-gradient(135deg, #667eea, #764ba2);
+  color: white;
+  margin-bottom: 2rem;
+  border-radius: 0 0 20px 20px;
 }
+
 .hero h2 {
   font-size: 2.5rem;
+  margin-bottom: 1rem;
 }
+
 .hero p {
   margin-top: 0.5rem;
   font-size: 1.2rem;
+  max-width: 800px;
+  margin: 0 auto;
 }
 
 /* Search Bar */
 .search-filter {
-  margin: 1rem auto;
+  margin: 1.5rem auto;
   text-align: center;
 }
+
 #searchInput {
-  padding: 0.5rem;
+  padding: 0.8rem 1.2rem;
   width: 50%;
-  border-radius: 8px;
-  border: 1px solid #ccc;
+  border-radius: 50px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  transition: all 0.3s ease;
+}
+
+#searchInput:focus {
+  outline: none;
+  box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+  border-color: #3a7bd5;
+}
+
+body.dark #searchInput {
+  background: #333;
+  color: #fff;
+  border-color: #444;
 }
 
 /* Table */
 .crypto-table {
-  padding: 1rem;
+  padding: 1.5rem;
   overflow-x: auto;
+  background: white;
+  border-radius: 12px;
+  margin: 0 1rem 2rem;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
 }
+
 table {
   width: 100%;
   border-collapse: collapse;
 }
+
 th, td {
   padding: 1rem;
   text-align: left;
-  border-bottom: 1px solid #ccc;
+  border-bottom: 1px solid #eee;
+}
+
+th {
+  font-weight: 600;
+  color: #555;
+}
+
+tbody tr {
+  transition: background 0.2s;
+}
+
+tbody tr:hover {
+  background: #f8f9fa;
+}
+
+body.dark tbody tr:hover {
+  background: #252525;
+}
+
+/* Coin Details Section */
+.coin-details {
+  margin: 1.5rem auto;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+.coin-card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  overflow: hidden;
+  padding: 0;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease;
+}
+
+.coin-card:hover {
+  transform: translateY(-5px);
+}
+
+.coin-header {
+  padding: 1.5rem;
+  display: flex;
+  align-items: center;
+  border-bottom: 1px solid #eee;
+}
+
+.coin-header img {
+  margin-right: 1rem;
+  border-radius: 50%;
+  box-shadow: 0 2px 6px rgba(0, 0, 0, 0.1);
+}
+
+.coin-header h2 {
+  margin: 0;
+  font-size: 1.8rem;
+}
+
+.coin-header .symbol {
+  color: #666;
+  font-size: 1rem;
+  margin-left: 0.5rem;
+}
+
+.coin-stats {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 1rem;
+  padding: 1.5rem;
+}
+
+.stat-item {
+  padding: 1rem;
+  border-radius: 8px;
+  background: #f8f9fa;
+}
+
+body.dark .stat-item {
+  background: #252525;
+}
+
+.stat-item strong {
+  display: block;
+  margin-bottom: 0.3rem;
+  color: #666;
+  font-size: 0.9rem;
+}
+
+.stat-item span {
+  font-size: 1.1rem;
+  font-weight: 500;
+}
+
+.positive-change {
+  color: #4caf50;
+}
+
+.negative-change {
+  color: #f44336;
+}
+
+/* Chart Container */
+.chart-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  position: relative;
+  height: 500px; /* Increased height */
+  opacity: 1; /* Make visible by default */
+  transform: translateY(0); /* Don't start with transform */
+  margin: 0 auto 2rem; /* Center the container */
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.chart-container.show {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+body.dark .chart-container {
+  background: #1e1e1e;
+}
+
+.chart-container h3 {
+  margin-bottom: 1rem;
+  color: #555;
+}
+
+body.dark .chart-container h3 {
+  color: #ddd;
 }
 
 /* Footer */
 footer {
   text-align: center;
-  padding: 1rem;
+  padding: 2rem;
   background: #111;
   color: white;
   margin-top: 2rem;
 }
 
-/* Responsive */
-@media (max-width: 600px) {
-  #searchInput {
-    width: 90%;
-  }
-  .hero h2 {
-    font-size: 1.8rem;
-  }
-  table, thead, tbody, th, td, tr {
-    display: block;
-  }
-  thead {
-    display: none;
-  }
-  tr {
-    margin-bottom: 1rem;
-    background: #eee;
-    padding: 1rem;
-    border-radius: 10px;
-  }
-  td {
-    display: flex;
-    justify-content: space-between;
-    padding: 0.5rem 0;
-  }
+/* Toggle Switch */
+.toggle-wrapper {
+  display: flex;
+  align-items: center;
 }
-.star-btn {
-  background: none;
-  border: none;
-  cursor: pointer;
-  font-size: 1.2rem;
-}
-.star-btn:hover {
-  color: gold;
-}/* Switch toggle */
+
 .switch {
   position: relative;
   display: inline-block;
   width: 50px;
   height: 26px;
-  margin-left: auto;
+  margin-left: 10px;
 }
 
 .switch input {
@@ -150,7 +322,7 @@ footer {
   position: absolute;
   top: 0; left: 0;
   right: 0; bottom: 0;
-  background-color: #ccc;
+  background-color: rgba(255, 255, 255, 0.3);
   border-radius: 34px;
   cursor: pointer;
   transition: 0.4s;
@@ -164,45 +336,36 @@ footer {
   background-color: white;
   border-radius: 50%;
   transition: 0.4s;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
 }
 
 input:checked + .slider {
-  background-color: #2196f3;
+  background-color: #90caf9;
 }
 
 input:checked + .slider:before {
   transform: translateX(24px);
 }
 
-/* Dark mode styles */
-body.dark {
-  background-color: #121212;
-  color: #f5f5f5;
-}
-
-body.dark .navbar,
-body.dark .coin-table,
-body.dark table,
-body.dark footer {
-  background-color: #1e1e1e;
-  color: #f5f5f5;
-}
-
-body.dark table td,
-body.dark table th {
-  border-color: #333;
-}
-
-body.dark a {
-  color: #90caf9;
-}
+/* Buttons */
 .bell-btn {
-  background: none;
+  background: rgba(255, 255, 255, 0.2);
   border: none;
-  font-size: 24px;
+  font-size: 18px;
   cursor: pointer;
   margin-left: 10px;
   color: inherit;
+  width: 36px;
+  height: 36px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  transition: background 0.2s;
+}
+
+.bell-btn:hover {
+  background: rgba(255, 255, 255, 0.3);
 }
 
 /* Notification pop-up */
@@ -218,21 +381,28 @@ body.dark a {
   opacity: 0;
   pointer-events: none;
   transition: all 0.4s ease;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
 }
 
 #notificationPopup.show {
   opacity: 1;
   pointer-events: auto;
 }
+
 /* Login button */
 .login-btn {
-  background-color: transparent;
-  border: 1px solid #888;
+  background-color: rgba(255, 255, 255, 0.2);
+  border: 1px solid rgba(255, 255, 255, 0.3);
   color: inherit;
-  padding: 6px 12px;
+  padding: 8px 16px;
   margin-left: 10px;
-  border-radius: 5px;
+  border-radius: 50px;
   cursor: pointer;
+  transition: background 0.2s;
+}
+
+.login-btn:hover {
+  background-color: rgba(255, 255, 255, 0.3);
 }
 
 /* Modal styles */
@@ -242,44 +412,78 @@ body.dark a {
   z-index: 2000;
   left: 0; top: 0;
   width: 100%; height: 100%;
-  background: rgba(0,0,0,0.6);
+  background: rgba(0,0,0,0.7);
   justify-content: center;
   align-items: center;
+  backdrop-filter: blur(5px);
 }
 
 .modal-content {
   background: #fff;
-  padding: 30px;
-  border-radius: 10px;
-  width: 300px;
+  padding: 2rem;
+  border-radius: 12px;
+  width: 320px;
   text-align: center;
   position: relative;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+  animation: modalFade 0.3s ease-out;
+}
+
+@keyframes modalFade {
+  from { opacity: 0; transform: translateY(-20px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+.modal-content h2 {
+  margin-bottom: 1.5rem;
+  color: #333;
 }
 
 .modal-content input {
   width: 100%;
-  padding: 10px;
+  padding: 12px;
   margin: 10px 0;
-  border-radius: 6px;
-  border: 1px solid #ccc;
+  border-radius: 8px;
+  border: 1px solid #ddd;
+  font-size: 1rem;
+  transition: border 0.2s;
+}
+
+.modal-content input:focus {
+  outline: none;
+  border-color: #3a7bd5;
 }
 
 .modal-content button[type="submit"] {
-  background-color: #2196f3;
+  background: linear-gradient(135deg, #3a7bd5, #00d2ff);
   color: white;
-  padding: 10px;
+  padding: 12px;
   border: none;
   width: 100%;
-  border-radius: 6px;
+  border-radius: 8px;
   cursor: pointer;
+  font-size: 1rem;
+  margin-top: 1rem;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.modal-content button[type="submit"]:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
 }
 
 .close-btn {
   position: absolute;
   right: 15px;
   top: 10px;
-  font-size: 20px;
+  font-size: 24px;
   cursor: pointer;
+  color: #999;
+  transition: color 0.2s;
+}
+
+.close-btn:hover {
+  color: #333;
 }
 
 .coming-soon-text {
@@ -293,8 +497,221 @@ body.dark .modal-content {
   color: white;
 }
 
+body.dark .modal-content h2 {
+  color: #fff;
+}
+
 body.dark .modal-content input {
   background: #333;
   color: white;
   border: 1px solid #555;
+}
+
+body.dark .close-btn {
+  color: #ccc;
+}
+
+body.dark .close-btn:hover {
+  color: #fff;
+}
+
+.logout-btn {
+  background: linear-gradient(135deg, #ff416c, #ff4b2b);
+  color: white;
+  padding: 8px 16px;
+  margin-left: 10px;
+  border-radius: 50px;
+  cursor: pointer;
+  border: none;
+  text-decoration: none;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+
+.logout-btn:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(0,0,0,0.1);
+}
+
+/* Loading animation */
+.loading {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem;
+  font-size: 1rem;
+  color: #666;
+}
+
+.loading:after {
+  content: "...";
+  animation: dots 1.5s infinite;
+}
+
+@keyframes dots {
+  0% { content: "."; }
+  33% { content: ".."; }
+  66% { content: "..."; }
+}
+
+/* Star button */
+.star-btn {
+  background: none;
+  border: none;
+  cursor: pointer;
+  font-size: 1.3rem;
+  color: #888;
+  transition: color 0.2s, transform 0.2s;
+}
+
+.star-btn:hover {
+  color: gold;
+  transform: scale(1.2);
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  #searchInput {
+    width: 90%;
+  }
+  
+  .hero h2 {
+    font-size: 1.8rem;
+  }
+  
+  .coin-stats {
+    grid-template-columns: 1fr;
+  }
+  
+  .navbar {
+    padding: 1rem;
+  }
+  
+  .navbar h2 {
+    font-size: 1.1rem;
+  }
+}
+
+@media (max-width: 600px) {
+  table, thead, tbody, th, td, tr {
+    display: block;
+  }
+  
+  thead tr {
+    position: absolute;
+    top: -9999px;
+    left: -9999px;
+  }
+  
+  tr {
+    margin-bottom: 1rem;
+    background: #f8f9fa;
+    padding: 1rem;
+    border-radius: 10px;
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.05);
+  }
+  
+  body.dark tr {
+    background: #252525;
+  }
+  
+  td {
+    display: flex;
+    justify-content: space-between;
+    padding: 0.5rem 0;
+    border: none;
+  }
+  
+  td:before {
+    content: attr(data-label);
+    font-weight: bold;
+    margin-right: 1rem;
+  }
+}
+/* Add these styles to your style.css file to fix the market statistics positioning */
+
+/* Container for both chart and stats to manage layout */
+.data-container {
+  display: flex;
+  flex-direction: column;
+  margin: 0 1rem 2rem;
+}
+
+/* Make the chart and market stats appear side by side on larger screens */
+@media (min-width: 992px) {
+  .data-container {
+    flex-direction: row;
+    flex-wrap: wrap;
+  }
+  
+  .chart-container {
+    width: 60%;
+    margin-right: 2%;
+  }
+  
+  .market-stats-section {
+    width: 38%;
+    margin-top: 0;
+  }
+}
+
+/* Chart container styling */
+.chart-container {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.05);
+  padding: 1.5rem;
+  position: relative;
+  height: 400px;
+  opacity: 1; /* Make visible by default */
+  transform: translateY(0); /* Don't start with transform */
+}
+
+body.dark .chart-container {
+  background: #1e1e1e;
+}
+
+/* Market stats specific styling */
+.market-stats-section {
+  margin-top: 2rem;
+}
+
+@media (min-width: 992px) {
+  .market-stats-section {
+    margin-top: 0;
+  }
+}
+
+/* Ensure the main coin details section is full width */
+#coinDetails {
+  width: 100%;
+  margin-bottom: 2rem;
+}
+
+/* General coin details sections */
+.coin-details {
+  margin: 1.5rem auto;
+  max-width: 1000px;
+  padding: 0 1rem;
+}
+
+/* Dark mode adjustments */
+body.dark .market-stats-section .coin-card {
+  background: #1e1e1e;
+}
+
+/* Responsive adjustments for smaller screens */
+@media (max-width: 768px) {
+  .data-container {
+    flex-direction: column;
+  }
+  
+  .chart-container,
+  .market-stats-section {
+    width: 100%;
+    margin-right: 0;
+  }
+  
+  .chart-container {
+    margin-bottom: 2rem;
+  }
 }
